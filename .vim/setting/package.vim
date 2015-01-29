@@ -7,6 +7,7 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'luochen1990/rainbow'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'Lokaltog/vim-easymotion'
 
 "------------------------------------------------------------------------------
 " Syntax & indentation
