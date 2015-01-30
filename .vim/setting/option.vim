@@ -52,4 +52,7 @@ let g:rainbow_active=1          " Activate rainbow.
 "------------------------------------------------------------------------------
 " Color
 "------------------------------------------------------------------------------
+colorscheme gruvbox
 set background=dark
+set t_Co=256
+hi Comment cterm=None

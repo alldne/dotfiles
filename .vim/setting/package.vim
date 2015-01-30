@@ -21,4 +21,4 @@ NeoBundle 'octol/vim-cpp-enhanced-highlight'
 "------------------------------------------------------------------------------
 " Color
 "------------------------------------------------------------------------------
-NeoBundle 'junegunn/seoul256.vim'
+NeoBundle 'morhetz/gruvbox'
