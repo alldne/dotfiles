@@ -48,6 +48,7 @@ set smartindent
 let EnhCommentifyPretty='y'     " Put a whitespace between the comment character and
                                 " the original line.
 let g:rainbow_active=1          " Activate rainbow.
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store'
 
 "------------------------------------------------------------------------------
 " Color
