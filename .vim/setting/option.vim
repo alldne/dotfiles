@@ -67,3 +67,8 @@ colorscheme gruvbox
 set background=dark
 set t_Co=256
 hi Comment cterm=None
+
+" FIXME: This external execution makes unnecessary blank lines after quitting the
+" vim as many as they can cover the current height of the terminal.
+" This only happens once for each shell after quitting the first execution of vim.
+silent !~/.shell/scripts/gruvbox_256palette.sh
