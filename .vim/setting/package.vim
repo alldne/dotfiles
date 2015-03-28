@@ -17,6 +17,7 @@ NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'hdima/python-syntax'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
+NeoBundle 'sukima/xmledit'
 
 "------------------------------------------------------------------------------
 " Color
