@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Mac OSX
+  # http://stackoverflow.com/a/8597411
+  echo 'mac'
+fi

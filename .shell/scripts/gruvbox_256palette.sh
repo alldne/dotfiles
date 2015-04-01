@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # Mac OSX
-  # http://stackoverflow.com/a/8597411
+if [ -n `./is_mac` ]; then
   script=~/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh
 else
   script=~/.vim/bundle/gruvbox/gruvbox_256palette.sh
