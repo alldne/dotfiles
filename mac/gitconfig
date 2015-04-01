@@ -1,0 +1,40 @@
+[color]
+branch=auto
+diff=auto
+status=auto
+[color "branch"]
+current=yellow reverse
+local=yellow
+remote=green
+[color "diff"]
+meta=yellow bold
+frag=blue bold
+old=red bold
+new=green bold
+[color "status"]
+added=yellow
+changed=green
+untracked=cyan
+
+[color]
+ui=true
+[core]
+whitepace=blank-at-eol, tab-in-indent
+editor=vim
+	whitespace = cr-at-eol
+[user]
+	name = Jeong Yong-uk
+	email = ywj1022@gmail.com
+[core]
+	excludesfile = /Users/alldne/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+lg=log --decorate
+co=checkout
+pick=cherry-pick
+br=branch

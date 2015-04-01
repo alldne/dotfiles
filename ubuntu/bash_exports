@@ -1,0 +1,19 @@
+# export SAMSUNG_TV_TOOL_CHAIN="/opt/toolchains/arm-v7a15v4r1-20130426/bin"
+export SAMSUNG_TV_TOOL_CHAIN="/opt/toolchains/arm-v7a15v4r2-20130730/bin"
+#export PATH=$SAMSUNG_TV_TOOL_CHAIN:$PATH
+export PROJECT_PATH=/home/yong/workspace/samsung2014
+export OPENSOURCE_DIR=/opt/samsungtv/OP/20130924
+export VENDOR_SDAL_DIR=/opt/samsungtv/SDAL/20130924
+export TARGET_SDAL=SDAL
+export PYTHONPATH=$PYTHONPATH:/home/yong/workspace/private/SoccerNight/soccer_night
+
+export PATH=/usr/lib/icecc/bin:$PATH
+export PATH=~/bin:$PATH
+export PATH=$PATH:/home/yong/workspace/chromium/src/third_party/android_tools/sdk/build-tools/19.0.0
+export PATH=$PATH:/home/yong/workspace/depot_tools
+export PATH=/home/yong/local/mongodb/mongodb-linux-x86_64-2.6.6/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
+
+#export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/lib:$LD_LIBRARY_PATH
+export WEBKIT_CORE_DUMPS_DIRECTORY=/home/yong/tmp/coredumps

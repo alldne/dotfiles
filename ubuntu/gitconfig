@@ -1,0 +1,51 @@
+[color]
+  branch=auto
+  diff=auto
+  status=auto
+
+[color "branch"]
+  current=yellow reverse
+  local=yellow
+  remote=green
+
+[color "diff"]
+  meta=yellow bold
+  frag=blue bold
+  old=red bold
+  new=green bold
+
+[color "status"]
+  added=yellow
+  changed=green
+  untracked=cyan
+
+[color]
+  ui=true
+
+[core]
+  whitepace=blank-at-eol, tab-in-indent
+  editor=vim
+  whitespace = cr-at-eol
+
+[merge]
+  tool = meld
+
+[mergetool "meld"]
+  path = usr/bin/meld
+  keepBackup = false
+  trustExitCode = false
+
+[user]
+  email = yong@company100.com
+  name = Jeong Yong-uk
+
+[alias]
+  lg = log --decorate=short
+  co = checkout
+  br = branch
+  pick = cherry-pick
+  meld = !~/workspace/private/git-meld/git-meld.pl
+  edit-unmerged = \
+      "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  add-unmerged = \
+      "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
