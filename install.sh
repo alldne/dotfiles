@@ -4,13 +4,7 @@ git_username="`git config --global user.name`"
 git_email="`git config --global user.email`"
 
 # sync files
-rsync --exclude ".gitmodules" \
-      --exclude ".gitignore" \
-      --exclude "LICENSE" \
-      --exclude "README.md" \
-      --exclude ".git/" \
-      --exclude "install.sh" \
-      -aP . ~
+rsync -aP home/ ~
 
 # git config
 if [ -z "$git_username" ]; then
