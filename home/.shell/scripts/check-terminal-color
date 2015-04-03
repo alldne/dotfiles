@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+RED="\e[31m"
+YELLOW="\e[33m"
+RESET="\e[0m"
+if [ `tput colors` -ne 256 ]; then
+    echo -e $RED"This terminal does not support 256 color. 'tput colors' for more detail"$RESET
+else
+    echo -e $YELLOW"This terminal supports 256 color"$RESET
+fi
