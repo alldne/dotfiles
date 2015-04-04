@@ -6,6 +6,10 @@ git_email="`git config --global user.email`"
 # sync files
 rsync -aP home/ ~
 
+if [ -n "`~/.shell/scripts/is_mac`" ]; then
+    rsync -aP osx/ ~
+fi
+
 # git config
 if [ -z "$git_username" ]; then
     read -r -p "git user name: " git_username
