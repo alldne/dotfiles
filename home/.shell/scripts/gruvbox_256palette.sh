@@ -7,5 +7,5 @@ else
 fi
 
 if [ -f $script ]; then
-  $script
+  source $script
 fi
