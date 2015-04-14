@@ -17,12 +17,14 @@ shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# 256 color support
-# http://askubuntu.com/a/379472
-if [ "$COLORTERM" = "gnome-terminal" ] || [ "$COLORTERM" = "xfce4-terminal" ]; then
-    export TERM=xterm-256color
-elif [ "$COLORTERM" = "rxvt-xpm" ]; then
-    export TERM=rxvt-256color
+if [ "${TERM%%-*}" != "screen" ]; then
+    # 256 color support
+    # http://askubuntu.com/a/379472
+    if [ "$COLORTERM" = "gnome-terminal" ] || [ "$COLORTERM" = "xfce4-terminal" ]; then
+        export TERM=xterm-256color
+    elif [ "$COLORTERM" = "rxvt-xpm" ]; then
+        export TERM=rxvt-256color
+    fi
 fi
 
 source ~/.shell/look
