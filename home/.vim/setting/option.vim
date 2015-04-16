@@ -30,6 +30,14 @@ set viminfo='20,\"50            " Read/write a .viminfo file, don't store more t
                                 " 50 lines of registers.
 set wildmode=list:longest       " Path/file expansion in colon-mode.
 set wildchar=<TAB>              "
+set cursorline                  " Highlight the screen line of the cursor with CursorLine.
+
+" http://superuser.com/a/393948
+augroup CursorLineOnActiveSplit
+    autocmd!
+    autocmd WinEnter * set cursorline
+    autocmd WinLeave * set nocursorline
+augroup END
 
 "------------------------------------------------------------------------------
 " Custom command
