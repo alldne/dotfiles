@@ -35,4 +35,5 @@ source ~/.shell/aliases
 source ~/.shell/exports
 
 source-if-exists ~/.nvm/nvm.sh
+source-if-exists ~/.rvm/scripts/rvm
 source-if-exists ~/.bashrc.local
