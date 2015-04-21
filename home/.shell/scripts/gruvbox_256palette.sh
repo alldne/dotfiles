@@ -6,6 +6,4 @@ else
   script=~/.vim/bundle/gruvbox/gruvbox_256palette.sh
 fi
 
-if [ -f $script ]; then
-  source $script
-fi
+source-if-exists $script

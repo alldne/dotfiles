@@ -1,11 +1,7 @@
+source ~/.bashrc
+
 # __git_ps1
-if [ -f ~/.git-prompt.sh ]; then
-    source ~/.git-prompt.sh
-fi
+source-if-exists ~/.git-prompt.sh
 
 # git completion
-if [ -f ~/.git-completion.bash ]; then
-   . ~/.git-completion.bash
-fi
-
-source ~/.bashrc
+source-if-exists ~/.git-completion.bash

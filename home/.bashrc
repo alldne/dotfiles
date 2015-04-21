@@ -26,14 +26,13 @@ if [ "${TERM%%-*}" != "screen" ]; then
     fi
 fi
 
+function source-if-exists {
+    [[ -s $1 ]] && source $1
+}
+
 source ~/.shell/look
 source ~/.shell/aliases
 source ~/.shell/exports
 
-if [ -f ~/.nvm/nvm.sh ]; then
-    source ~/.nvm/nvm.sh
-fi
-
-if [ -f ~/.bashrc.local ]; then
-    source ~/.bashrc.local
-fi
+source-if-exists ~/.nvm/nvm.sh
+source-if-exists ~/.bashrc.local
