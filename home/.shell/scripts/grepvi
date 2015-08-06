@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+if [ -n "$1" ]; then
+ vi -p $(grep -rIl "$1" .) -c "/$1"
+fi
+
