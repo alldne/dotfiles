@@ -3,10 +3,17 @@
 YELLOW="\033[33m"
 RESET="\033[0m"
 
-if [ $SHELL != "/bin/bash" ]
+TARGET_SHELL=zsh
+if [ $SHELL != "/bin/$TARGET_SHELL" ]
 then
-    echo -e $YELLOW"You're now using $SHELL as a default. Trying to change it to bash."$RESET
-    chsh -s /bin/bash
+    echo -e $YELLOW"You're now using $SHELL as a default. Trying to change it to $TARGET_SHELL."$RESET
+    if [ ! -f ./install-oh-my-zsh.sh ]; then
+        wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O install-oh-my-zsh.sh
+    fi
+
+    # this script doesn't do an installation if it's already installed
+    sh ./install-oh-my-zsh.sh
+    chsh -s /bin/$TARGET_SHELL
     echo -e $YELLOW"You should reopen the session to see the change."$RESET
 fi
 
@@ -15,10 +22,6 @@ git_email="`git config --global user.email`"
 
 # sync files
 rsync -aP home/ ~
-
-if [ -n "`~/.shell/scripts/is_mac`" ]; then
-    rsync -aP osx/ ~
-fi
 
 # git config
 if [ -z "$git_username" ]; then

@@ -12,3 +12,5 @@ alias subl='sublime_text'
 alias f='find . -name '
 
 alias ..='cd ..'
+
+alias tt='tmux attach -t'
