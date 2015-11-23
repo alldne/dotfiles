@@ -1,18 +1,20 @@
-case "$TERM" in
-xterm*|rxvt*|screen*)
-     PS1="\[\033[01;34m\]["
-     PS1="${PS1}\[\033[01;36m\]\t"
-     PS1="${PS1}\[\033[01;34m\]]"
-     PS1="${PS1}\[\033[01;33m\]:"
-     PS1="${PS1}\[\033[01;35m\]\W"
-     PS1="${PS1}\[\033[01;33m\]\$(__git_ps1 '(%s)')$DEFAULT"
-     PS1="${PS1}\[\033[01;31m\]\$ "
-     PS1="${PS1}\[\033[00;37m\]"
-     PS1="${PS1}\[\033[0m\]"
-    ;;
-*)
-    ;;
-esac
+if [ $SHELL = "/bin/bash" ]; then
+    case "$TERM" in
+    xterm*|rxvt*|screen*)
+         PS1="\[\033[01;34m\]["
+         PS1="${PS1}\[\033[01;36m\]\t"
+         PS1="${PS1}\[\033[01;34m\]]"
+         PS1="${PS1}\[\033[01;33m\]:"
+         PS1="${PS1}\[\033[01;35m\]\W"
+         PS1="${PS1}\[\033[01;33m\]\$(__git_ps1 '(%s)')$DEFAULT"
+         PS1="${PS1}\[\033[01;31m\]\$ "
+         PS1="${PS1}\[\033[00;37m\]"
+         PS1="${PS1}\[\033[0m\]"
+        ;;
+    *)
+        ;;
+    esac
+fi
 
 if [ -n "`~/.shell/scripts/is_mac`" ]; then
     export GREP_OPTIONS='--color=auto'
