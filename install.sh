@@ -16,7 +16,7 @@ then
     # this script doesn't do an installation if it's already installed
     sh ./install-oh-my-zsh.sh
     chsh -s /bin/$TARGET_SHELL
-    echo -e $YELLOW"You should reopen the session to see the change."$RESET
+    echo -e $YELLOW"You may reopen the session or logout and login again to see the change."$RESET
 fi
 
 git_username="`git config --global user.name`"
