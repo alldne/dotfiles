@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # TODO: dependencies should be installed first such as git, zsh, vim, tmux, nvm, etc..
 
