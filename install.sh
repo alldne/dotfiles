@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+# TODO: dependencies should be installed first such as git, zsh, vim, tmux, nvm, etc..
+
 YELLOW="\033[33m"
 RESET="\033[0m"
 
