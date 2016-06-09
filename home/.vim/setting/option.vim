@@ -77,5 +77,9 @@ set background=dark
 set t_Co=256
 hi Comment cterm=None
 
+" Fix bad readability due to the color of CursorLine.
+" This is a temporary fix.
+hi CursorLine ctermbg=Black
+
 " https://github.com/morhetz/gruvbox/issues/81
 set t_ut=
