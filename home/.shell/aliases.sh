@@ -14,3 +14,6 @@ alias f='find . -name '
 alias ..='cd ..'
 
 alias tt='tmux attach -t'
+
+# note: only working for `ack`, not `ack-grep`.
+alias ackp='ack --pager="less -R"'
