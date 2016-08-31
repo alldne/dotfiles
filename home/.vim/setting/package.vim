@@ -20,6 +20,7 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'sukima/xmledit'
 NeoBundle 'vim-scripts/vim-creole'
+NeoBundle 'toyamarinyon/vim-swift'
 
 "------------------------------------------------------------------------------
 " Color
