@@ -1,28 +1,28 @@
 "------------------------------------------------------------------------------
 " Plugin
 "------------------------------------------------------------------------------
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'hrp/EnhancedCommentify'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'luochen1990/rainbow'
-NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'christoomey/vim-tmux-navigator'
+Plug 'majutsushi/tagbar'
+Plug 'hrp/EnhancedCommentify'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'luochen1990/rainbow'
+Plug 'kshenoy/vim-signature'
+Plug 'kien/ctrlp.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'christoomey/vim-tmux-navigator'
 
 "------------------------------------------------------------------------------
 " Syntax & indentation
 "------------------------------------------------------------------------------
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'hdima/python-syntax'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
-NeoBundle 'sukima/xmledit'
-NeoBundle 'vim-scripts/vim-creole'
-NeoBundle 'toyamarinyon/vim-swift'
+Plug 'pangloss/vim-javascript'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'hdima/python-syntax'
+Plug 'fatih/vim-go'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'sukima/xmledit'
+Plug 'vim-scripts/vim-creole'
+Plug 'toyamarinyon/vim-swift'
 
 "------------------------------------------------------------------------------
 " Color
 "------------------------------------------------------------------------------
-NeoBundle 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
