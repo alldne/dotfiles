@@ -37,3 +37,4 @@
       "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   pr = log --graph --full-history --all --oneline --decorate=short
   rup = remote update --prune
+  difc = diff --cached
