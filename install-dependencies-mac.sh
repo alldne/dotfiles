@@ -66,3 +66,6 @@ if [ ! -d "/Applications/Visual Studio Code.app" ]; then
 else
     __system "[OK] Visual Studio Code"
 fi
+
+__system "Import a terminal theme: Pro_modified"
+open Pro_modified.terminal
