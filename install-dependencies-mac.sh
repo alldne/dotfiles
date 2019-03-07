@@ -67,5 +67,13 @@ else
     __system "[OK] Visual Studio Code"
 fi
 
+if [ ! -L $HOME/icloud ]; then
+    __system "Create a symlink to iCloud at $HOME/icloud"
+    ln -s "$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs" $HOME/icloud
+    ls -al $HOME/icloud
+else
+    __system "[OK] symlink to iCloud at ~/icloud"
+fi
+
 __system "Import a terminal theme: Pro_modified"
 open Pro_modified.terminal
