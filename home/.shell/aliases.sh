@@ -23,3 +23,6 @@ alias tt='tmux attach -t'
 
 # note: only working for `ack`, not `ack-grep`.
 alias ackp='ack --pager="less -R"'
+
+# https://unix.stackexchange.com/a/479990
+alias -g ___='"$(eval "$(fc -ln -1)" | tail -n 1)"'
