@@ -3,8 +3,8 @@ source ~/.shell/exports.sh
 source ~/.shell/look.sh
 source ~/.shell/functions.sh
 
-source-if-exists ~/.nvm/nvm.sh
-source-if-exists ~/.rvm/scripts/rvm
+#  source-if-exists ~/.nvm/nvm.sh
+#  source-if-exists ~/.rvm/scripts/rvm
 source-if-exists ~/.zshrc.local
 
 #eval "$(swiftenv init -)"
