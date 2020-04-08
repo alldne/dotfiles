@@ -26,3 +26,11 @@ alias ackp='ack --pager="less -R"'
 
 # https://unix.stackexchange.com/a/479990
 alias -g ___='"$(eval "$(fc -ln -1)" | tail -n 1)"'
+
+alias save='git commit -a -m "saved `date`"'
+
+alias be="bundle exec"
+
+alias xcodesign="sudo codesign -f -s XcodeSigner /Applications/Xcode.app"
+
+alias deletemerged='git branch --merged | egrep -v "(^\*|master|release)" | xargs git branch -D'
