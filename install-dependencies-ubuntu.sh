@@ -41,6 +41,9 @@ install-if-needed tmux
 install-if-needed vim
 install-if-needed silversearcher-ag
 
+install-if-needed g++
+install-if-needed make
+
 if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     __system "Generate ssh key"
     ssh-keygen
