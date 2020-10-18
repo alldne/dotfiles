@@ -31,6 +31,7 @@ alias save='git commit -a -m "saved `date`"'
 
 alias be="bundle exec"
 
-alias xcodesign="sudo codesign -f -s XcodeSigner /Applications/Xcode.app"
+# https://egeek.me/2020/03/01/upgrading-xcode-and-xvim/
+alias xcodesign="sudo codesign -f -s XcodeSigner /Applications/Xcode.app && sudo codesign -v -s XcodeSigner -f --timestamp=none /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild"
 
 alias deletemerged='git branch --merged | egrep -v "(^\*|master|release)" | xargs git branch -D'
