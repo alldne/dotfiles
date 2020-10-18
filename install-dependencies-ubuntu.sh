@@ -43,6 +43,7 @@ install-if-needed silversearcher-ag
 
 install-if-needed g++
 install-if-needed make
+install-if-needed build-essential
 
 if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     __system "Generate ssh key"
