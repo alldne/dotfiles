@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # https://stackoverflow.com/a/28938235
 # Reset
 RESET='\033[0m'       # Text Reset
