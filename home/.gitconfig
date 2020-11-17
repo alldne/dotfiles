@@ -36,3 +36,6 @@
   pr = log --graph --full-history --all --oneline --decorate=short
   rup = remote update --prune
   difc = diff --cached
+
+[includeIf "gitdir:~/workspace/nyu/"]
+  path = .gitconfig-nyu
