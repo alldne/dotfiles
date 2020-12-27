@@ -37,7 +37,5 @@
   rup = remote update --prune
   difc = diff --cached
 
-[includeIf "gitdir:~/workspace/nyu/"]
-  path = .gitconfig-nyu
 [core]
   excludesfile = ~/.gitignore-global

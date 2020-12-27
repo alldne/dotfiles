@@ -39,4 +39,8 @@ fi
 git config --global user.name "$git_username"
 git config --global user.email "$git_email"
 
+echo -e $YELLOW"Inject gitconfig-override at the end of the .gitconfig.."$RESET
+echo "[include]"                      >> ~/.gitconfig
+echo "  path = ~/.gitconfig-override" >> ~/.gitconfig
+
 ~/.shell/scripts/check-terminal-color

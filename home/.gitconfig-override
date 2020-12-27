@@ -1,0 +1,8 @@
+# This file is guaranteed to be loaded after .gitconfig is completely loaded.
+#
+# Why is this needed? Because the order in the .gitconfig matters.
+# For instance, `git config --global user.name` appends lines at the end of the .gitconfig,
+# which could potentially overwrite user.name and user.email set in the .gitconfig.
+
+[includeIf "gitdir:~/workspace/nyu/"]
+  path = ~/.gitconfig-nyu
