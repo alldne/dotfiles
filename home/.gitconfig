@@ -39,3 +39,5 @@
 
 [includeIf "gitdir:~/workspace/nyu/"]
   path = .gitconfig-nyu
+[core]
+  excludesfile = ~/.gitignore-global
