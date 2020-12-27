@@ -25,6 +25,21 @@ git_username="`git config --global user.name`"
 git_email="`git config --global user.email`"
 
 # sync files
+
+echo -e $YELLOW"Show diff"$RESET
+diff -r home $HOME | grep -v "Only in $HOME"
+
+echo -e $YELLOW"Dry run.."$RESET
+rsync -anP home/ ~
+
+echo ''
+read -n 1 -p "Do you want to proceed? (yN)? " yn
+echo -e $RESET
+case $yn in
+      y ) ;;
+      * ) exit 0 ;;
+esac
+
 rsync -aP home/ ~
 
 # git config
