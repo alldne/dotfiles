@@ -7,16 +7,21 @@ set -e
 YELLOW="\033[33m"
 RESET="\033[0m"
 
+# install oh-my-zsh
+if [ ! -d $HOME/.oh-my-zsh ]; then
+  if [ ! -f ./install-oh-my-zsh.sh ]; then
+      wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O install-oh-my-zsh.sh
+  fi
+
+  # this script doesn't do an installation if it's already installed
+  sh ./install-oh-my-zsh.sh
+fi
+
+# Use zsh if needed
 TARGET_SHELL=zsh
 if [ $SHELL != "/bin/$TARGET_SHELL" ]
 then
     echo -e $YELLOW"You're now using $SHELL as a default. Trying to change it to $TARGET_SHELL."$RESET
-    if [ ! -f ./install-oh-my-zsh.sh ]; then
-        wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O install-oh-my-zsh.sh
-    fi
-
-    # this script doesn't do an installation if it's already installed
-    sh ./install-oh-my-zsh.sh
     chsh -s /bin/$TARGET_SHELL
     echo -e $YELLOW"You may reopen the session or logout and login again to see the change."$RESET
 fi
