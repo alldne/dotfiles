@@ -71,20 +71,25 @@ else
     __system "[OK] ssh key under $HOME/.ssh"
 fi
 
-
-if [ ! -L $HOME/icloud ]; then
-    __system "Create a symlink to iCloud at $HOME/icloud"
-    ln -s "$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs" $HOME/icloud
-    ls -al $HOME/icloud
-else
-    __system "[OK] symlink to iCloud at ~/icloud"
 open-install-page-if-needed "Visual Studio Code" "https://code.visualstudio.com/docs/setup/mac"
 open-install-page-if-needed "Sublime Merge" "https://www.sublimemerge.com"
 open-install-page-if-needed "Clipy" "https://clipy-app.com"
 open-install-page-if-needed "Magnet" "https://magnet.crowdcafe.com"
+
+ICLOUD_DOC="$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs"
+if [ -d "$ICLOUD_DOC" ]; then
+    if [ ! -L $HOME/icloud ]; then
+        __system "Create a symlink to iCloud at $HOME/icloud"
+        ln -s $ICLOUD_DOC $HOME/icloud
+        ls -al $HOME/icloud
+    else
+        __system "[OK] symlink to iCloud at ~/icloud"
+    fi
 fi
 
 __system "Import a terminal theme: Pro_modified"
 open Pro_modified.terminal
 
 open "https://www.sublimemerge.com/docs/command_line"
+
+__system "Completed"
