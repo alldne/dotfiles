@@ -33,6 +33,15 @@ function brew-install-if-needed {
     fi
 }
 
+function open-install-page-if-needed {
+    if [ ! -d "/Applications/$1.app" ]; then
+        __system "Install $1"
+        open $2
+    else
+        __system "[OK] $1"
+    fi
+}
+
 assert-deps xcodebuild
 assert-deps git
 
@@ -62,12 +71,6 @@ else
     __system "[OK] ssh key under $HOME/.ssh"
 fi
 
-if [ ! -d "/Applications/Visual Studio Code.app" ]; then
-    __system "Install Visual Studio Code"
-    open https://code.visualstudio.com/docs/setup/mac
-else
-    __system "[OK] Visual Studio Code"
-fi
 
 if [ ! -L $HOME/icloud ]; then
     __system "Create a symlink to iCloud at $HOME/icloud"
@@ -75,7 +78,13 @@ if [ ! -L $HOME/icloud ]; then
     ls -al $HOME/icloud
 else
     __system "[OK] symlink to iCloud at ~/icloud"
+open-install-page-if-needed "Visual Studio Code" "https://code.visualstudio.com/docs/setup/mac"
+open-install-page-if-needed "Sublime Merge" "https://www.sublimemerge.com"
+open-install-page-if-needed "Clipy" "https://clipy-app.com"
+open-install-page-if-needed "Magnet" "https://magnet.crowdcafe.com"
 fi
 
 __system "Import a terminal theme: Pro_modified"
 open Pro_modified.terminal
+
+open "https://www.sublimemerge.com/docs/command_line"
