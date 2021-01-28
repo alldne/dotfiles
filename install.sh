@@ -58,4 +58,8 @@ echo -e $YELLOW"Inject gitconfig-override at the end of the .gitconfig.."$RESET
 echo "[include]"                      >> ~/.gitconfig
 echo "  path = ~/.gitconfig-override" >> ~/.gitconfig
 
+mkdir -p ~/bin
+mkdir -p ~/.local/bin
+touch ~/.zshrc.local
+
 ~/.shell/scripts/check-terminal-color
