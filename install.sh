@@ -68,3 +68,6 @@ mkdir -p ~/.local/bin
 touch ~/.zshrc.local
 
 ~/.shell/scripts/check-terminal-color
+
+# https://apple.stackexchange.com/a/31955
+defaults write -g ApplePressAndHoldEnabled -bool false
