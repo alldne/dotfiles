@@ -52,7 +52,7 @@ xcode-select -p
 if command -v brew > /dev/null; then
     brew update
 else
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 assert-deps brew
