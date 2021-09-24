@@ -26,6 +26,7 @@ then
     echo -e $YELLOW"You may reopen the session or logout and login again to see the change."$RESET
 fi
 
+git config --global --edit
 git_username="`git config --global user.name`"
 git_email="`git config --global user.email`"
 
