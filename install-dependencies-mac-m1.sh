@@ -73,6 +73,9 @@ else
     __system "[OK] ssh key under $HOME/.ssh"
 fi
 
+# x86 brew
+arch --x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 open-install-page-if-needed "Visual Studio Code" "https://code.visualstudio.com/docs/setup/mac"
 open-install-page-if-needed "Sublime Merge" "https://www.sublimemerge.com"
 open-install-page-if-needed "Clipy" "https://clipy-app.com"

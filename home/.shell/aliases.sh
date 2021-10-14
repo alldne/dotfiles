@@ -35,3 +35,5 @@ alias be="bundle exec"
 alias xcodesign="sudo codesign -f -s XcodeSigner /Applications/Xcode.app && sudo codesign -v -s XcodeSigner -f --timestamp=none /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild"
 
 alias deletemerged='git branch --merged | egrep -v "(^\*|master|release)" | xargs git branch -D'
+
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
