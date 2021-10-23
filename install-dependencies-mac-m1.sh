@@ -49,12 +49,16 @@ __system 'Current xcode path'
 xcode-select -p
 
 # install brew
+
+export PATH=/opt/homebrew/bin:$PATH
+
 if command -v brew > /dev/null; then
     brew update
 else
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
     eval "$(/opt/homebrew/bin/brew shellenv)" >> $HOME/.zprofile
+    echo 'export PATH=/opt/homebrew/bin:$PATH' >> $HOME/.zprofile
 fi
 
 assert-deps brew
@@ -74,7 +78,7 @@ else
 fi
 
 # x86 brew
-arch --x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# arch --x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 open-install-page-if-needed "Visual Studio Code" "https://code.visualstudio.com/docs/setup/mac"
 open-install-page-if-needed "Sublime Merge" "https://www.sublimemerge.com"
