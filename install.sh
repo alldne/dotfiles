@@ -4,6 +4,8 @@ set -e
 
 # TODO: dependencies should be installed first such as git, zsh, vim, tmux, nvm, etc..
 
+export PATH=/opt/homebrew/bin:$PATH
+
 YELLOW="\033[33m"
 RESET="\033[0m"
 
