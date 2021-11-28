@@ -42,6 +42,7 @@ install-if-needed zsh
 install-if-needed tmux
 install-if-needed vim
 install-if-needed silversearcher-ag
+install-if-needed nginx
 
 install-if-needed g++
 install-if-needed make
