@@ -7,6 +7,8 @@ set -e
 YELLOW="\033[33m"
 RESET="\033[0m"
 
+export PATH=/opt/homebrew/bin:$PATH # should prefer M1 homebrew over intel homebrew
+
 # install oh-my-zsh
 if [ ! -d $HOME/.oh-my-zsh ]; then
   if [ ! -f ./install-oh-my-zsh.sh ]; then
