@@ -66,6 +66,8 @@ brew-install-if-needed tmux
 brew-install-if-needed vim
 brew-install-if-needed ag
 
+brew install --cask openinterminal
+
 if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     __system "Generate ssh key"
     ssh-keygen
