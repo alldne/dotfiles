@@ -37,3 +37,7 @@ alias xcodesign="sudo codesign -f -s XcodeSigner /Applications/Xcode.app && sudo
 alias deletemerged='git branch --merged | egrep -v "(^\*|master|release)" | xargs git branch -D'
 
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
+
+alias kblog='kubectl logs -f -n'
+alias kbpod='kubectl get pod -n'
+alias kbdeploy='kubectl get pod -n'
