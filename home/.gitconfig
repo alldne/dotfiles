@@ -39,3 +39,6 @@
 
 [core]
   excludesfile = ~/.gitignore-global
+
+[push]
+   default = current
