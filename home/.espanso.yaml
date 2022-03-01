@@ -1,0 +1,27 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+toggle_key: RIGHT_SHIFT
+show_notifications: false
+
+matches:
+  - trigger: ";date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ";week"
+    replace: "Week of {{monday}}"
+    vars:
+      - name: monday
+        type: shell
+        params:
+          cmd: "date -v -Mon '+%Y-%m-%d'"
