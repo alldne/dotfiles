@@ -83,6 +83,7 @@ open-install-page-if-needed "Sublime Merge" "https://www.sublimemerge.com"
 open-install-page-if-needed "Clipy" "https://clipy-app.com"
 open-install-page-if-needed "Magnet" "https://magnet.crowdcafe.com"
 open-install-page-if-needed "Mac Mouse Fix" "https://mousefix.org/"
+open "https://espanso.org/docs/install/mac"
 
 ICLOUD_DOC="$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs"
 if [ -d "$ICLOUD_DOC" ]; then
