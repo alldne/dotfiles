@@ -48,7 +48,7 @@ assert-deps git
 __system 'Current xcode path'
 xcode-select -p
 
-# install brew
+__system 'Install brew (or brew update)'
 if command -v brew > /dev/null; then
     brew update
 else
@@ -65,6 +65,7 @@ brew-install-if-needed zsh-completions
 brew-install-if-needed tmux
 brew-install-if-needed vim
 brew-install-if-needed ag
+brew-install-if-needed trash
 
 brew install --cask openinterminal
 

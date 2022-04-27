@@ -41,3 +41,7 @@ alias ibrew='arch -x86_64 /usr/local/bin/brew'
 alias kblog='kubectl logs -f -n'
 alias kbpod='kubectl get pod -n'
 alias kbdeploy='kubectl get pod -n'
+
+if command -v trash > /dev/null; then
+  alias rm='echo "rm is alias of trash";trash'
+fi
