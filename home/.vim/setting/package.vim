@@ -1,7 +1,7 @@
 "------------------------------------------------------------------------------
 " Plugin
 "------------------------------------------------------------------------------
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'hrp/EnhancedCommentify'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'luochen1990/rainbow'
@@ -19,7 +19,7 @@ Plug 'hdima/python-syntax'
 Plug 'fatih/vim-go'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'sukima/xmledit'
-Plug 'vim-scripts/vim-creole'
+" Plug 'vim-scripts/vim-creole'
 Plug 'toyamarinyon/vim-swift'
 
 "------------------------------------------------------------------------------
