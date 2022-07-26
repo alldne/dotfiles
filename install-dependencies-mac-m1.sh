@@ -104,4 +104,6 @@ open Pro_modified.terminal
 
 open "https://www.sublimemerge.com/docs/command_line"
 
+vi ~/.vim/coc-settings.json
+
 __system "Completed"

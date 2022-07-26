@@ -9,6 +9,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jberglinds/coc-jira-complete', {'do': 'yarn install --frozen-lockfile'}
 
 "------------------------------------------------------------------------------
 " Syntax & indentation
