@@ -5,11 +5,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-source ~/.vim/setting/package.vim
+source ~/.vim/package.vim
 call plug#end()
 
-source ~/.vim/setting/option.vim
-source ~/.vim/setting/key.vim
+source ~/.vim/option.vim
+source ~/.vim/key.vim
 
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local
