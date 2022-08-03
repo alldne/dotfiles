@@ -1,0 +1,47 @@
+#!/bin/bash
+
+function generate_tmp_filename {
+  # echo $RANDOM, shasum is slow
+  date +%s
+}
+
+if [[ ! -d .git ]]; then
+  echo "No .git directory"
+  exit 1
+fi
+
+TMP_DIR=.git/var
+TMP=$TMP_DIR/`generate_tmp_filename`
+
+if [[ -f $TMP ]]; then
+  # file name conflict
+  echo "Please try again"
+  exit 0
+fi
+
+echo $TMP
+mkdir -p .git/var
+git branch > $TMP.origin
+cp $TMP.origin $TMP
+vi $TMP
+
+if diff $TMP.origin $TMP > /dev/null; then
+  echo "Nothing has changed"
+  exit 0
+else
+  # confirm and delete branches
+  BRANCHES=$( diff $TMP $TMP.origin | awk '/^>/{print $2}' ) 
+  echo ""
+  echo $BRANCHES
+  echo ""
+
+
+  read -n 1 -p "Are you sure you wan to delete the branches above (y/N)?" yn
+  echo -e $RESET
+  case $yn in
+    y ) echo $BRANCHES | xargs git branch -D ;;
+    * ) exit 0 ;;
+  esac
+fi
+
+rm $TMP $TMP.origin
