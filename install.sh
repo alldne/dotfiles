@@ -76,3 +76,5 @@ touch ~/.zshrc.local
 
 # https://apple.stackexchange.com/a/31955
 defaults write -g ApplePressAndHoldEnabled -bool false
+
+echo -e $YELLOW"Run ./espanso.sh"$RESET

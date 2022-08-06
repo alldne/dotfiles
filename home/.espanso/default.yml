@@ -25,3 +25,12 @@ matches:
         type: shell
         params:
           cmd: "date -v -Mon '+%Y-%m-%d'"
+
+  - trigger: ";wip"
+    replace: "{{branch}}"
+    vars:
+      - name: branch
+        type: shell
+        params:
+          # Your working git path
+          cmd: "cd $WIP_DIR; git branch --show-current"
