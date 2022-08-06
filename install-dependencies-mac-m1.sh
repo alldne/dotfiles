@@ -64,7 +64,7 @@ brew-install-if-needed zsh
 brew-install-if-needed zsh-completions
 brew-install-if-needed tmux
 brew-install-if-needed vim
-brew-install-if-needed ripgrep
+brew-install-if-needed ag
 brew-install-if-needed trash
 brew-install-if-needed node
 brew-install-if-needed yarn
