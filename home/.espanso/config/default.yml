@@ -1,0 +1,6 @@
+# espanso configuration file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+toggle_key: RIGHT_SHIFT
+show_notifications: false
+clipboard_threshold: 100
