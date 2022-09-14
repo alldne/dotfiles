@@ -30,7 +30,7 @@ if diff $TMP.origin $TMP > /dev/null; then
   exit 0
 else
   # confirm and delete branches
-  BRANCHES=$( diff $TMP $TMP.origin | awk '/^>/{print $2}' ) | awk '!/^\*$/' | awk '!/ /'
+  BRANCHES=$( diff $TMP $TMP.origin | awk '/^>/{print $2}' | awk '!/^\*$/' | awk '!/ /' )
   echo ""
   echo $BRANCHES
   echo ""
