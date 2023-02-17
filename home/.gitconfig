@@ -31,8 +31,8 @@
   co = checkout
   br = branch
   pick = cherry-pick
-  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim \"`f`\""
-  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add \"`f`\""
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u | tr \"\\n\" \" \" ;  }; vim -p $(f)"
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u | tr \"\\n\" \" \" ;  }; git add $(f)"
   pr = log --graph --full-history --all --oneline --decorate=short
   rup = remote update --prune
   difc = diff --cached
