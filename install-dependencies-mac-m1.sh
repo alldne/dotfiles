@@ -69,6 +69,7 @@ brew-install-if-needed trash
 brew-install-if-needed node
 brew-install-if-needed yarn
 brew-install-if-needed fzf
+brew-install-if-needed tasksh
 
 brew install --cask openinterminal
 

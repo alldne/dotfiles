@@ -45,3 +45,5 @@ alias kbdeploy='kubectl get pod -n'
 if command -v trash > /dev/null; then
   alias rm='echo "rm is alias of trash";trash'
 fi
+
+alias t='task'
