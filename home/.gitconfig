@@ -40,6 +40,8 @@
 
 [core]
   excludesfile = ~/.gitignore-global
+  # https://stackoverflow.com/a/5255710
+  trustctime = false
 
 [push]
    default = current
