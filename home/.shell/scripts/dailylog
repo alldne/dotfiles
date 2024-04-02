@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Obsidian 데일리 노트 디렉토리 경로
+daily_dir="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/note/daily"
+
+# 인자로 받은 날짜 오프셋 (기본값: 0)
+date_offset="${1:-0}"
+
+# 대상 날짜 계산 (yyyy-MM-dd 형식)
+if [ "$date_offset" -eq 0 ]; then
+    target_date=$(date +%Y-%m-%d)
+else
+    target_date=$(date -v "$date_offset"d +%Y-%m-%d)
+fi
+
+# 대상 날짜의 데일리 노트 파일 경로
+daily_file="$daily_dir/$target_date.md"
+
+# 파일이 존재하지 않으면 새로 생성
+if [ ! -f "$daily_file" ]; then
+    touch "$daily_file"
+fi
+
+# vi로 데일리 노트 파일 열기
+vi "$daily_file"
+
+# 파일 내용에서 공백과 줄 바꿈 문자 제거
+trimmed_content=$(sed -e 's/[[:space:]]//g' "$daily_file")
+
+# 트리밍된 내용이 비어있는지 확인하고, 비어있다면 파일 삭제
+if [ -z "$trimmed_content" ]; then
+    rm "$daily_file"
+fi
