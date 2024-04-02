@@ -1,0 +1,179 @@
+#!/usr/bin/env python3
+import requests
+import sys
+import subprocess
+import json
+import os
+
+
+def read_jira_config(config_file):
+    if not os.path.exists(config_file):
+        return None
+
+    with open(config_file, "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def write_jira_config(config_file, config):
+    with open(config_file, "w", encoding="utf-8") as file:
+        json.dump(config, file, ensure_ascii=False)
+
+
+def get_jira_ticket_details(ticket_number, cache_file, config):
+    # Check cache first
+    cache = {}
+    if os.path.exists(cache_file):
+        with open(cache_file, "r") as file:
+            cache = json.load(file)
+            if ticket_number in cache:
+                try:
+                    cached_entry = cache[ticket_number]
+                    return (
+                        cached_entry["title"],
+                        cached_entry["body_preview"],
+                        cached_entry["issue_link"],
+                    )
+                except:
+                    cache.pop(ticket_number)
+
+    JIRA_DOMAIN = config.get("JIRA_DOMAIN")
+    USERNAME = config.get("USERNAME")
+    API_TOKEN = config.get("API_TOKEN")
+    if not all([JIRA_DOMAIN, USERNAME, API_TOKEN]):
+        print("JIRA configuration not found.")
+        return None
+
+    API_ENDPOINT = f"https://{JIRA_DOMAIN}/rest/api/2/issue/{ticket_number}"
+
+    response = requests.get(API_ENDPOINT, auth=(USERNAME, API_TOKEN))
+
+    if response.status_code != 200:
+        print("Error fetching ticket details.")
+        return None
+
+    data = response.json()
+    title = data["fields"]["summary"]
+    body_preview = (
+        data["fields"]["description"].strip()[0:100]
+        if data["fields"]["description"]
+        else ""
+    )
+    issue_link = f"https://{JIRA_DOMAIN}/browse/{ticket_number}"
+
+    # Update cache
+    cache[ticket_number] = {
+        "title": title,
+        "body_preview": body_preview,
+        "issue_link": issue_link,
+    }
+    with open(cache_file, "w", encoding="utf-8") as file:
+        json.dump(cache, file, ensure_ascii=False, indent=4)
+
+    return title, body_preview, issue_link
+
+
+def print_clickable_link(url):
+    # Using ANSI escape code to print clickable link
+    print(f"\x1b]8;;{url}\x1b\\{url}\x1b]8;;\x1b\\")
+
+
+def print_help_message():
+    help_message = """
+    Usage: jira [TICKET_NUMBER] [options]
+
+    - TICKET_NUMBER: The JIRA ticket number (optional if current directory is a git repo with branch name as ticket number).
+    - -b, --body: To include the body preview of the JIRA ticket.
+    - -g, --go: Open the JIRA issue link in a web browser.
+    - -h, --help: To display this help message.
+    """
+    print(help_message)
+
+
+def get_current_git_branch():
+    try:
+        branch_name = (
+            subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
+            .decode()
+            .strip()
+        )
+        return branch_name
+    except subprocess.CalledProcessError:
+        print("Error: Current directory is not a git repository.")
+        sys.exit(1)
+
+
+def get_user_input(prompt, default=None, example=None):
+    input_prompt = f"{prompt}"
+    if default:
+        input_prompt += f" [Default: {default}]"
+    if example:
+        input_prompt += f" (e.g., {example})"
+    input_prompt += ": "
+    user_input = input(input_prompt).strip()
+
+    if not user_input:
+        if default is not None:
+            return default
+        else:
+            print("No input provided. Aborting.")
+            sys.exit(1)
+
+    return user_input
+
+
+def get_jira_config_inputs():
+    print("Enter your JIRA configuration details.")
+    domain = get_user_input("JIRA Domain", default="ffwd.atlassian.net")
+    username = get_user_input("Username", example="jojo@weffwd.com")
+    print(
+        "Issue an API token at: https://id.atlassian.com/manage-profile/security/api-tokens"
+    )
+    api_token = get_user_input("API Token")
+
+    return domain, username, api_token
+
+
+def open_issue_link_in_browser(issue_link):
+    subprocess.run(["open", issue_link])
+
+
+if __name__ == "__main__":
+    home_dir = os.path.expanduser("~")
+    cache_file = os.path.join(home_dir, ".jira_cache")
+    config_file = os.path.join(home_dir, ".jira")
+
+    config = read_jira_config(config_file)
+    if not config:
+        config = {}
+        (
+            config["JIRA_DOMAIN"],
+            config["USERNAME"],
+            config["API_TOKEN"],
+        ) = get_jira_config_inputs()
+        write_jira_config(config_file, config)
+
+    if "-h" in sys.argv or "--help" in sys.argv:
+        print_help_message()
+        sys.exit(0)
+
+    ticket_number = None
+    for arg in sys.argv[1:]:
+        if not arg.startswith("--") and not arg.startswith("-"):
+            ticket_number = arg
+            break
+
+    if not ticket_number:
+        ticket_number = get_current_git_branch()
+
+    include_body = "-b" in sys.argv or "--body" in sys.argv
+    open_link = "-g" in sys.argv or "--go" in sys.argv
+    details = get_jira_ticket_details(ticket_number, cache_file, config)
+
+    if details:
+        title, body_preview, issue_link = details
+        print(title)
+        print_clickable_link(issue_link)
+        if include_body:
+            print("\n", body_preview)
+        if open_link:
+            open_issue_link_in_browser(issue_link)
