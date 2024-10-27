@@ -42,18 +42,19 @@ install-if-needed zsh
 install-if-needed tmux
 install-if-needed vim
 install-if-needed silversearcher-ag
-install-if-needed nginx
+install-if-needed caddy
 
 install-if-needed g++
 install-if-needed make
 install-if-needed build-essential
 
-if [ ! -f "$HOME/.ssh/id_rsa" ]; then
+if [ -z "$(ls -A $HOME/.ssh/*id_* 2>/dev/null)" ]; then
     __system "Generate ssh key"
     ssh-keygen
 else
-    __system "[OK] ssh key under $HOME/.ssh"
+    __system "[OK] ssh key exists under $HOME/.ssh"
 fi
+
 
 echo ""
 __system "Make sure you've installed zsh-completions"
