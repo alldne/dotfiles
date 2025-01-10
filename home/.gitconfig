@@ -51,3 +51,12 @@
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
+
+######################################################################
+# [include] must be placed at the end to override the existing configs
+######################################################################
+[include]
+  path = ~/.gitconfig-override
+
+[include]
+  path = ~/.gitconfig-local
